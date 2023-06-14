@@ -2,7 +2,6 @@ package br.ufma.sppg.model;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,13 +39,13 @@ public class ProgramaTest {
   }
   
   @Test
-  public void shouldSaveProgramaWithDocente() throws ParseException {
+  public void shouldSaveProgramaWithDocente() {
     Programa novoPrograma = Programa.builder()
         .nome("Programa de Pós-Graduação em Engenharia de Eletricidade - PPGEE")
         .build();
     Docente novoDocente = Docente.builder()
         .nome("Geraldo Braz Junior")
-        .lattes("123").dataAtualizacao(new SimpleDateFormat("dd/MM/yyyy").parse("23/05/2022"))
+        .lattes("123").dataAtualizacao(new SimpleDateFormat("dd/MM/yyyy"))
         .build();
 
     Programa programaSalvo = programaRepository.save(novoPrograma);
@@ -62,13 +61,13 @@ public class ProgramaTest {
   }
   
   @Test
-  public void shouldAvoidDeleteProgramaWithDocente() throws ParseException {
+  public void shouldAvoidDeleteProgramaWithDocente() {
     Programa novoPrograma = Programa.builder()
         .nome("Programa de Pós-Graduação em Engenharia de Eletricidade - PPGEE")
         .build();
     Docente novoDocente = Docente.builder()
         .nome("Geraldo Braz Junior")
-        .lattes("123").dataAtualizacao(new SimpleDateFormat("dd/MM/yyyy").parse("23/05/2022"))
+        .lattes("123").dataAtualizacao(new SimpleDateFormat("dd/MM/yyyy"))
         .build();
 
     Programa programaSalvo = programaRepository.save(novoPrograma);
